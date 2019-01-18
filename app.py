@@ -6,13 +6,17 @@
 #pip install dash-html-components==0.13.4  # HTML components
 #pip install dash-core-components==0.42.1  # Supercharged components
 #pip install dash-table==3.1.11  # Interactive DataTable component (new!)
-
+#conda install pandas
 
 import dash
 import dash_table
 import pandas as pd
 import dash_core_components as dcc
 import dash_html_components as html
+
+df = pd.read_csv("https://raw.githubusercontent.com/rutgerhofste/dash_app_example/master/wef_global_risk_v02.csv")
+
+print(df.shape)
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
@@ -36,8 +40,16 @@ app.layout = html.Div(children=[
                 'title': 'Dash Data Visualization'
             }
         }
+    ),
+    dash_table.DataTable(
+        id='table',
+        columns=[{"name": i, "id": i} for i in df.columns],
+        data=df.to_dict("rows"),
     )
 ])
+
+
+
 
 if __name__ == '__main__':
     app.run_server(debug=True)
