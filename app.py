@@ -13,6 +13,7 @@ import dash_table
 import pandas as pd
 import dash_core_components as dcc
 import dash_html_components as html
+import plotly.graph_objs as go
 
 df = pd.read_csv("https://raw.githubusercontent.com/rutgerhofste/dash_app_example/master/wef_global_risk_v02.csv")
 
@@ -29,22 +30,40 @@ app.layout = html.Div(children=[
         Dash: A web application framework for Python.
     '''),
 
+    html.Label('Slider'),
+
+    dcc.Slider(
+        min=2012,
+        max=2019,
+        marks = {1:"2012",2:"2013",3:"2014",4:"2015",5:"2016",6:"2017",7:"2018",8:"2019"},
+        value=2019,
+    ),
+
     dcc.Graph(
-        id='example-graph',
+        id='life-exp-vs-gdp',
         figure={
             'data': [
-                {'x': [1, 2, 3], 'y': [10, 1, 2], 'type': 'bar', 'name': 'SF'},
-                {'x': [1, 2, 3], 'y': [2, 4, 5], 'type': 'bar', 'name': u'Montréal'},
+                go.Scatter(
+                    x=df[df['year'] == i]['x'],
+                    y=df[df['year'] == i]['y'],
+                    text=df[df['year'] == i]['risk'],
+                    mode='markers',
+                    opacity=0.7,
+                    marker={
+                        'size': 15,
+                        'line': {'width': 0.5, 'color': 'white'}
+                    },
+                    name=str(i)
+                ) for i in df.year.unique()
             ],
-            'layout': {
-                'title': 'Dash Data Visualization'
-            }
+            'layout': go.Layout(
+                xaxis={'type': 'log', 'title': 'likelihood'},
+                yaxis={'title': 'impact'},
+                margin={'l': 40, 'b': 40, 't': 10, 'r': 10},
+                legend={'x': 0, 'y': 1},
+                hovermode='closest'
+            )
         }
-    ),
-    dash_table.DataTable(
-        id='table',
-        columns=[{"name": i, "id": i} for i in df.columns],
-        data=df.to_dict("rows"),
     )
 ])
 
