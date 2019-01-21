@@ -28,7 +28,8 @@ https://dash.plot.ly/getting-started
 ## Running in the cloud
 
 ### Heroku
-[docs](https://devcenter.heroku.com/articles/getting-started-with-python) 
+[python+heroku docs](https://devcenter.heroku.com/articles/getting-started-with-python)   
+[dash+heroku docs](https://dash.plot.ly/deployment)  
 
 1. Install CLI
 2. Open Terminal (as admin)
