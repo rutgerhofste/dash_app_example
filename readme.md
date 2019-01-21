@@ -4,14 +4,14 @@
 
 ## Running Locally
 
-Create virtualenv or conda environment
+Create virtualenv or conda environment  
 `conda create --name dashtest python=3.6`  
 
-Activate environment
+Activate environment  
 dashtest
-Unix:
+Unix:  
 `source activate dashtest`
-Windows:
+Windows:  
 `activate dashtest`
 
 `pip install dash==0.35.1  # The core dash backend`  
