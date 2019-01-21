@@ -18,6 +18,7 @@ Windows:
 `pip install dash-html-components==0.13.4  # HTML components`  
 `pip install dash-core-components==0.42.1  # Supercharged components`  
 `pip install dash-table==3.1.11  # Interactive DataTable component (new!)`  
+`pip install pandas`
 
 ## Running in the cloud
 
