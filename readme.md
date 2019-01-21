@@ -10,9 +10,9 @@ Create virtualenv or conda environment
 Activate environment  
 dashtest
 Unix:  
-`source activate dashtest`
-Windows:  
-`activate dashtest`
+`source activate dashtest`  
+Windows:   
+`activate dashtest`  
 
 `pip install dash==0.35.1  # The core dash backend`  
 `pip install dash-html-components==0.13.4  # HTML components`  
