@@ -2,8 +2,6 @@
 
 # Hello world for a Dash app. 
 
-## Running Locally
-
 Create virtualenv or conda environment  
 `conda create --name dashtest python=3.6`  
 
@@ -20,6 +18,21 @@ Windows:
 `pip install dash-table==3.1.11  # Interactive DataTable component (new!)`  
 `pip install pandas`
 
+Hello world app:  
+https://dash.plot.ly/getting-started
+
+## Running Locally
+`python app.py`
+
+
 ## Running in the cloud
 
+### Heroku
+[docs](https://devcenter.heroku.com/articles/getting-started-with-python) 
+
+1. Install CLI
+2. Open Terminal (as admin)
+3. Heroku login
+4. Add Heroku files: 
+5. `heroku create`
 
